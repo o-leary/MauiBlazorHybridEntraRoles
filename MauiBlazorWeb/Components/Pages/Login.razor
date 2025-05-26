@@ -1,0 +1,42 @@
+﻿@page "/login"
+@using System.Diagnostics
+@inject NavigationManager Navigation
+@inject EntraAuthStateProvider AuthStateProvider
+
+<AuthorizeView>
+    <NotAuthorized>
+        <h3>Login to Access Application</h3>
+        <div class="alert alert-danger" hidden="@loginFailureHidden">
+            @AuthStateProvider.LoginFailureMessage
+        </div>
+        <button onclick="@LoginUser">Login to MSAL</button>
+    </NotAuthorized>
+    <Authorized>
+         @{ Navigation.NavigateTo(""); }
+    </Authorized>
+</AuthorizeView>
+
+
+@code {
+    //private LoginRequest LoginModel { get; set; } = new();
+    private bool loginFailureHidden = true;
+
+    protected override void OnInitialized()
+    {
+        if (AuthStateProvider.LoginStatus == LoginStatus.Failed)
+        {
+            loginFailureHidden = false;
+        }
+    }
+
+    private async void LoginUser()
+    {
+        await AuthStateProvider.LogInAsync();
+        //nothing past here will run on windows
+        if (AuthStateProvider.LoginStatus == LoginStatus.Failed)
+        {
+            loginFailureHidden = false;
+        }
+        Navigation.NavigateTo("");
+    }
+}
