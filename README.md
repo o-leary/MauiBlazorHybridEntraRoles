@@ -1,5 +1,7 @@
 # .NET MAUI Blazor Hybrid App With Entra Roles Authentication and API.
 
+#### Currently I have only tested Android and Windows targets, not iOS as I am awaiting apple renewing my developer licence.
+
 This took an incredible amount of time to pull together a lot of outdated information. If it helps you please let me know so I don't feel like I wasted my effort.
 
 This sample is based on the below Microsoft sample (https://github.com/dotnet/blazor-samples/tree/main/9.0/MauiBlazorWebIdentity). To demonstrate roles the Counter page is visible only to "Users" role, and the "Weather" page/API are only visible to either "Supervisor" or "Administrator".
