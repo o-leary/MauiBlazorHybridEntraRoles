@@ -1,3 +1,22 @@
+# .NET MAUI Blazor Hybrid App With Entra Roles Authentication and API.
+
+This took an incredible amount of time to pull together a lot of outdated information. If it helps you please let me know so I don't feel like I wasted my effort.
+
+This sample is based on the below Microsoft sample (https://github.com/dotnet/blazor-samples/tree/main/9.0/MauiBlazorWebIdentity). To demonstrate roles the Counter page is visible only to "Users" role, and the "Weather" page/API are only visible to either "Supervisor" or "Administrator".
+
+To set up:
+* Register an enterprise app.
+* Configure web client application in the same app registration and enable https://localhost/signout-callback-oidc and https://localhost/signin-oidc redirect urls.
+* Configure mobile and desktop app in the same app registration and enable http://localhost and msal urls.
+* Ensure the app & enterprise app both have owners set.
+* Expose an api with scope API.Access and add your app to authorised client applications.
+* Add roles for User, Supervisor, Administrator and then assign them on the enterprise app.
+* Fill in the TenantId, ClientId and API in AppConstants.cs
+* Fill in the ClientId in AndroidManifest.xml
+* Fill in the TenantId, ClientId, and Audience (use ClientId) in the API's AppSettings.json.
+* Once you have everything working you can uncomment a line in WeatherService.cs to force logout when the API is unauthorized.
+
+
 # .NET MAUI Blazor Hybrid and Web App with ASP.NET Core Identity sample app (`MauiBlazorWeb`)
 
 This sample demonstrates .NET MAUI Blazor Hybrid and Web App that shares common UI and *authentication*. The sample uses ASP.NET Core Identity local accounts, but you can use this pattern for any authentication provider from a MAUI Blazor Hybrid client.
