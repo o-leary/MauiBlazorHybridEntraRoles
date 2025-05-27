@@ -17,6 +17,10 @@ To set up:
 * Once you have everything working you can uncomment a line in WeatherService.cs to force logout when the API is unauthorized.
 
 
+
+
+# Old README below:
+
 # .NET MAUI Blazor Hybrid and Web App with ASP.NET Core Identity sample app (`MauiBlazorWeb`)
 
 This sample demonstrates .NET MAUI Blazor Hybrid and Web App that shares common UI and *authentication*. The sample uses ASP.NET Core Identity local accounts, but you can use this pattern for any authentication provider from a MAUI Blazor Hybrid client.
